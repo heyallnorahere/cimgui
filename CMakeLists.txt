@@ -4,8 +4,10 @@ project(cimgui)
 
 set (CMAKE_CXX_STANDARD 11)
 
-if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui_tables.cpp)
-	set(TABLES_SOURCE "imgui/imgui_tables.cpp")
+set(IMGUI "${CMAKE_CURRENT_SOURCE_DIR}/imgui" CACHE STRING "ImGui source directory")
+
+if (EXISTS ${IMGUI}/imgui_tables.cpp)
+    set(TABLES_SOURCE "${IMGUI}/imgui_tables.cpp")
 else()
 	set(TABLES_SOURCE "")
 endif()
@@ -14,10 +16,10 @@ endif()
 #general settings
 file(GLOB IMGUI_SOURCES
     cimgui.cpp
-    imgui/imgui.cpp
-    imgui/imgui_draw.cpp
-    imgui/imgui_demo.cpp
-    imgui/imgui_widgets.cpp
+    ${IMGUI}/imgui.cpp
+    ${IMGUI}/imgui_draw.cpp
+    ${IMGUI}/imgui_demo.cpp
+    ${IMGUI}/imgui_widgets.cpp
 	${TABLES_SOURCE}
 )
 
@@ -29,7 +31,7 @@ if(IMGUI_FREETYPE)
 	message(STATUS "Building with freetype")
 	FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
 	list(APPEND IMGUI_LIBRARIES freetype)
-	list(APPEND IMGUI_SOURCES imgui/misc/freetype/imgui_freetype.cpp)
+    list(APPEND IMGUI_SOURCES ${IMGUI}/misc/freetype/imgui_freetype.cpp)
 endif(IMGUI_FREETYPE)
 
 #add library and link
