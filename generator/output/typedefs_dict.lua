@@ -99,6 +99,7 @@ local t={
   ImGuiLayoutType="int",
   ImGuiListClipper="struct ImGuiListClipper",
   ImGuiListClipperData="struct ImGuiListClipperData",
+  ImGuiListClipperFlags="int",
   ImGuiListClipperRange="struct ImGuiListClipperRange",
   ImGuiLocEntry="struct ImGuiLocEntry",
   ImGuiLogFlags="int",

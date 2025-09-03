@@ -39,3 +39,8 @@ cimgui/x64/
 # Test / Build
 bld/
 build/
+
+# generation output
+cimgui.cpp
+cimgui.h
+output/
