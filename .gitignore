@@ -42,4 +42,5 @@ build/
 
 # generation output
 cimgui*.*
+preprocesed.h
 generator/output/*.json
