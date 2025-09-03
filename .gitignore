@@ -41,6 +41,5 @@ bld/
 build/
 
 # generation output
-cimgui.cpp
-cimgui.h
-output/
+cimgui*.*
+generator/output/*.json
