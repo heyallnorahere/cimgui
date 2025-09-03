@@ -14,8 +14,8 @@ endif()
 
 
 #general settings
-file(GLOB IMGUI_SOURCES
-    cimgui.cpp
+set(IMGUI_SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/cimgui.cpp"
     ${IMGUI}/imgui.cpp
     ${IMGUI}/imgui_draw.cpp
     ${IMGUI}/imgui_demo.cpp
@@ -64,8 +64,7 @@ else (WIN32)
 endif (WIN32)
 
 target_include_directories(cimgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories(cimgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui)
-set_target_properties(cimgui PROPERTIES PREFIX "")
+target_include_directories(cimgui PUBLIC ${IMGUI})
 target_link_libraries(cimgui ${IMGUI_LIBRARIES})
 
 #install
